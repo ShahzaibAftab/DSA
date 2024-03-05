@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stack</title>
     <script>
-      // STACK OPERATIONS
+      // STACK OPERATIONS USING FUNCTIONS
       let stack = [];
       let curSize = stack.length;
       let maxVal = 5;
@@ -65,6 +65,46 @@
       //   console.log("reversed stack", stack);
       //   let str = convertStringtoArray("hello");
       //   console.log("str", str);
+
+      //   IMPLEMENT USING STACK
+      class stackClass {
+        items = [];
+        curSize;
+        maxSize;
+
+        constructor(size) {
+          this.maxSize = size;
+          this.curSize = 0;
+        }
+        push(val) {
+          if (this.curSize < this.maxSize) {
+            this.items[this.curSize] = val;
+            this.curSize += 1;
+          } else {
+            console.log("Array is full");
+          }
+        }
+        pop() {
+          if (this.curSize === 0) {
+            console.log("Array is empty");
+          } else {
+            this.items.length -= 1;
+            this.curSize -= 1;
+          }
+        }
+        display() {
+          console.log(this.items);
+        }
+      }
+      let obj = new stackClass(5);
+      obj.push(2);
+      obj.push(3);
+      obj.push(4);
+      obj.push(5);
+      obj.display();
+
+      obj.pop()
+      obj.display()
     </script>
   </head>
   <body></body>
