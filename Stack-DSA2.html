@@ -5,14 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stack</title>
     <script>
+      // STACK OPERATIONS
       let stack = [];
-      let curValue = stack.length;
-      let maxVal = 0;
+      let curSize = stack.length;
+      let maxVal = 5;
 
       function push(val) {
-        stack[curValue] = val;
-        curValue += 1;
+        if (curSize <= 5) {
+          stack[curSize] = val;
+          curSize += 1;
+        } else {
+          console.log("stack is already full, cannot add " + val);
+        }
       }
+
+      function pop() {
+        if (curSize === 0) {
+          console.log("stack is empty");
+        } else {
+          stack.length -= 1;
+          curSize -= 1;
+        }
+      }
+
+      function reverseStack() {
+        let i = 0;
+        let temp = 0;
+        let iterationSize = curSize;
+        while (i < curSize / 2) {
+          temp = stack[i];
+          stack[i] = stack[iterationSize - 1];
+          stack[iterationSize - 1] = temp;
+          i++;
+          iterationSize -= 1;
+        }
+        return;
+      }
+
+      function convertStringtoArray(str) {
+        let newArr = [];
+
+        for (let i = 0; i < str.length; i++) {
+          newArr.push(str[i]);
+        }
+        return newArr;
+      }
+
+      //   push(3);
+      //   push(4);
+      //   push(5);
+      //   push(6);
+      //   push(7);
+      //   push(8);
+      //   push(8);
+      //   console.log("updated stack", stack);
+      //   pop();
+      //   console.log("updated stack", stack);
+      //   reverseStack();
+      //   console.log("reversed stack", stack);
+      //   let str = convertStringtoArray("hello");
+      //   console.log("str", str);
     </script>
   </head>
   <body></body>
