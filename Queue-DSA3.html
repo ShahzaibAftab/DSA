@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Queue</title>
+    <script>
+      let queue = [];
+      let curSize = 0;
+      let maxSize = 5;
+
+      function enQueue(val) {
+        if (curSize === maxSize) {
+          console.log("Queue is full");
+        } else {
+          queue[curSize] = val;
+          curSize += 1;
+        }
+      }
+
+      function deQueue() {
+        for (let i = 0; i <curSize; i++) {
+          queue[i] = queue[i + 1];
+        }
+        curSize-=1
+      }
+      enQueue(3);
+      enQueue(4);
+      enQueue(5);
+      enQueue(6);
+
+      deQueue()
+      console.log(queue);
+    </script>
+  </head>
+  <body></body>
+</html>
