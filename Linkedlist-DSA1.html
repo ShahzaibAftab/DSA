@@ -33,6 +33,17 @@
             curNode = curNode.next;
           }
         }
+        middleNode() {
+          let slowPtr = this.head;
+          let fastPtr = this.head;
+
+          while (fastPtr && fastPtr.next) {
+            slowPtr = slowPtr.next;
+            fastPtr = fastPtr.next.next;
+          }
+
+          return slowPtr;
+        }
         insertValueAtIndex(index, updatedValue) {
           if (index === 0) {
             this.head.value = updatedValue;
@@ -83,6 +94,7 @@
       list.deleteNodeAtIndex(3);
       //   list.deleteLastNode();
       console.log("updatedlist", list);
+      // list.middleNode();
     </script>
   </head>
   <body>
